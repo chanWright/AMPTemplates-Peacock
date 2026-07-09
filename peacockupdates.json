@@ -1,0 +1,18 @@
+[
+  {
+    "UpdateStageName": "Download Peacock (Windows build, includes bundled Node.js)",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "FetchURL",
+    "UpdateSourceData": "https://github.com/thepeacockproject/Peacock/releases/download/v8.8.1/Peacock-v8.8.1.zip",
+    "UnzipUpdateSource": true,
+    "OverwriteExistingFiles": true
+  },
+  {
+    "UpdateStageName": "Download Peacock (Linux build, requires system Node.js)",
+    "UpdateSourcePlatform": "Linux",
+    "UpdateSource": "FetchURL",
+    "UpdateSourceData": "https://github.com/thepeacockproject/Peacock/releases/download/v8.8.1/Peacock-v8.8.1-linux.zip",
+    "UnzipUpdateSource": true,
+    "OverwriteExistingFiles": true
+  }
+]

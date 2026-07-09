@@ -1,0 +1,194 @@
+[
+  {
+    "DisplayName": "Console Log Level",
+    "Description": "How verbose Peacock's console output should be.",
+    "FieldName": "LogLevel",
+    "Category": "Logging",
+    "InputType": "enum",
+    "EnumValues": {
+      "error": "Error only",
+      "warn": "Warning",
+      "info": "Info (default)",
+      "debug": "Debug",
+      "silly": "Silly (very verbose)"
+    },
+    "DefaultValue": "info",
+    "Hidden": false,
+    "Required": false
+  },
+  {
+    "DisplayName": "Log File Retention",
+    "Description": "How long to keep rotated log files for, e.g. '14d' for 14 days, or '10' for the 10 most recent files.",
+    "FieldName": "LogMaxFiles",
+    "Category": "Logging",
+    "InputType": "text",
+    "DefaultValue": "14d",
+    "Hidden": false,
+    "Required": false
+  },
+
+  {
+    "DisplayName": "Unlock All Shortcuts",
+    "Description": "Always unlock every loadout/mission shortcut (equivalent to gameplayUnlockAllShortcuts in options.ini).",
+    "FieldName": "gameplayUnlockAllShortcuts",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Unlock All Freelancer Masteries",
+    "Description": "Always unlock every Freelancer mode mastery reward.",
+    "FieldName": "gameplayUnlockAllFreelancerMasteries",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Map Discovery State",
+    "Description": "REVEALED marks every map location as discovered on connect, CLOUDED resets discovery, KEEP leaves it alone.",
+    "FieldName": "mapDiscoveryState",
+    "Category": "Gameplay",
+    "InputType": "enum",
+    "EnumValues": { "KEEP": "Keep current state", "REVEALED": "Revealed", "CLOUDED": "Clouded" },
+    "DefaultValue": "KEEP"
+  },
+  {
+    "DisplayName": "Enable Mastery Progression",
+    "Description": "If disabled, all unlockables are granted immediately instead of being earned through mastery progression.",
+    "FieldName": "enableMasteryProgression",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "true"
+  },
+  {
+    "DisplayName": "Enable Isolated Unlockables",
+    "Description": "Whether items with no unlocking approach are unlocked by default. Only applies when Mastery Progression is enabled.",
+    "FieldName": "enableIsolatedUnlockables",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "true"
+  },
+  {
+    "DisplayName": "Show Elusive Targets in Instinct",
+    "Description": "Shows Elusive Targets in Instinct mode like normal targets. Intended for practice only, not for speedrun submissions.",
+    "FieldName": "elusivesAreShown",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Enable Contracts Mode Saving",
+    "Description": "Enables saving in Contracts Mode for both user-created and featured contracts (still governed by each contract's own save rules).",
+    "FieldName": "enableContractsModeSaving",
+    "Category": "Gameplay",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Legacy Noticed-Kill Scoring",
+    "Description": "How noticed kills are scored in the HITMAN 2016 engine maps: 'vanilla' matches official behaviour, 'sane' uses Peacock's older, more forgiving behaviour.",
+    "FieldName": "legacyNoticedKillScoring",
+    "Category": "Gameplay",
+    "InputType": "enum",
+    "EnumValues": { "vanilla": "Vanilla (official)", "sane": "Sane (legacy Peacock)" },
+    "DefaultValue": "vanilla"
+  },
+
+  {
+    "DisplayName": "Legacy Elusives Saving",
+    "Description": "When enabled, Elusive Target missions in HITMAN 2016 use the same save/replan rules as normal missions, but the 'Elusive Target' discovery challenges won't be completable.",
+    "FieldName": "legacyElusivesEnableSaving",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Grant Default Suits",
+    "Description": "Adds every default starting suit to the inventory automatically.",
+    "FieldName": "getDefaultSuits",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Startup Jokes",
+    "Description": "Prints a joke to the server console window on startup.",
+    "FieldName": "jokes",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Submit Times to Leaderboards",
+    "Description": "Allows completion times to be submitted to Peacock's in-game leaderboards.",
+    "FieldName": "leaderboards",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "true"
+  },
+  {
+    "DisplayName": "Check For Updates on Startup",
+    "Description": "Whether Peacock should check thepeacockproject.org for a newer release each time it starts.",
+    "FieldName": "updateChecking",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "true"
+  },
+  {
+    "DisplayName": "Loadout Saving Mode",
+    "Description": "PROFILES uses the modern Loadout Profiles system, LEGACY uses the older per-user save format.",
+    "FieldName": "loadoutSaving",
+    "Category": "Services",
+    "InputType": "enum",
+    "EnumValues": { "PROFILES": "Loadout Profiles", "LEGACY": "Legacy per-user" },
+    "DefaultValue": "PROFILES"
+  },
+  {
+    "DisplayName": "Legacy Contract Downloader (H3)",
+    "Description": "If enabled, HITMAN 3 contract downloads use IOI's official servers (platform-locked). If disabled, they use the community HITMAPS servers. H1/H2 always use official servers regardless of this setting.",
+    "FieldName": "legacyContractDownloader",
+    "Category": "Services",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Image Loading Mode",
+    "Description": "SAVEASREQUESTED fetches images online and caches them locally, ONLINE always fetches without caching, OFFLINE only uses locally cached images.",
+    "FieldName": "imageLoading",
+    "Category": "Services",
+    "InputType": "enum",
+    "EnumValues": { "SAVEASREQUESTED": "Save as requested", "ONLINE": "Online only", "OFFLINE": "Offline only" },
+    "DefaultValue": "SAVEASREQUESTED"
+  },
+
+  {
+    "DisplayName": "Discord Rich Presence",
+    "Description": "Enables Discord Rich Presence integration for players connected to this server (requires the player's own Discord client).",
+    "FieldName": "discordRp",
+    "Category": "Discord",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  },
+  {
+    "DisplayName": "Discord RP Shows Total App Time",
+    "Description": "When Discord Rich Presence is on: show total time using Peacock instead of time in the current level.",
+    "FieldName": "discordRpAppTime",
+    "Category": "Discord",
+    "InputType": "checkbox",
+    "EnumValues": { "False": "false", "True": "true" },
+    "DefaultValue": "false"
+  }
+]

@@ -1,0 +1,31 @@
+[
+  {
+    "ConfigFile": "Peacock-v8.8.1/options.ini",
+    "ConfigType": "ini",
+    "Subsections": [
+      {
+        "Heading": "peacock",
+        "SettingMappings": {
+          "gameplayUnlockAllShortcuts": "gameplayUnlockAllShortcuts",
+          "gameplayUnlockAllFreelancerMasteries": "gameplayUnlockAllFreelancerMasteries",
+          "mapDiscoveryState": "mapDiscoveryState",
+          "enableMasteryProgression": "enableMasteryProgression",
+          "enableIsolatedUnlockables": "enableIsolatedUnlockables",
+          "elusivesAreShown": "elusivesAreShown",
+          "enableContractsModeSaving": "enableContractsModeSaving",
+          "legacyNoticedKillScoring": "legacyNoticedKillScoring",
+          "legacyElusivesEnableSaving": "legacyElusivesEnableSaving",
+          "getDefaultSuits": "getDefaultSuits",
+          "jokes": "jokes",
+          "leaderboards": "leaderboards",
+          "updateChecking": "updateChecking",
+          "loadoutSaving": "loadoutSaving",
+          "legacyContractDownloader": "legacyContractDownloader",
+          "imageLoading": "imageLoading",
+          "discordRp": "discordRp",
+          "discordRpAppTime": "discordRpAppTime"
+        }
+      }
+    ]
+  }
+]

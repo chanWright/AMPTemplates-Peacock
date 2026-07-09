@@ -1,0 +1,9 @@
+[
+  {
+    "Protocol": "TCP",
+    "Port": 8080,
+    "Ref": "WebPort",
+    "Name": "Peacock Web/API Port",
+    "Description": "The port the Peacock HTTP server listens on. Point PeacockPatcher (Windows) or the OnlineTools ZHMModSDK plugin (Linux/Steam Deck) at <your-server-ip>:<this port>. Peacock's own default is 80, but that requires root/admin privileges to bind, so this template defaults to 8080 instead - change it to 80 if you know what you're doing and are running as an administrator/root."
+  }
+]
