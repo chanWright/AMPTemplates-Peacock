@@ -1,7 +1,7 @@
 {
   "id": "peacock-hitman-woa",
   "origin": "your-github-username/your-fork-of-AMPTemplates",
-  "url": "https://github.com/your-github-username/your-fork-of-AMPTemplates",
+  "url": "https://github.com/chanWright/AMPTemplates-Peacock",
   "prefix": "Peacock",
   "configs": [
     "peacock.kvp"
