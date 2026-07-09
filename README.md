@@ -75,26 +75,28 @@ expecting to find it in the stock AMP template list.
 
 ## Updating Peacock to a newer version
 
-Because Peacock's release zips extract into a version-named folder (e.g.
-`Peacock-v8.8.1/`), this template currently pins that exact version in a few places. When a
-new Peacock release comes out, edit **four** things and then hit **Update** in AMP:
+Peacock's release zips extract into a version- and platform-named folder (e.g.
+`Peacock-v8.8.1/` on Windows, `Peacock-v8.8.1-linux/` on Linux — note these two are **not**
+the same name). To avoid re-editing paths every release, the update stages in
+`peacockupdates.json` download the zip and then immediately rename whichever folder appears
+into a fixed `server/` folder. Because of that, `peacock.kvp` and `peacockmetaconfig.json`
+never need to change on a version bump — the **only** thing you need to update is the two
+download URLs in `peacockupdates.json`:
 
-1. `peacockupdates.json` — change both download URLs from `v8.8.1` to the new tag, e.g.
-   `.../releases/download/v8.9.0/Peacock-v8.9.0.zip` and `...-linux.zip`.
-2. `peacock.kvp` — update these three lines to the new folder name:
-   - `App.BaseDirectory=./peacock/Peacock-v8.9.0/`
-   - `App.WorkingDir=Peacock-v8.9.0`
-   - `App.ExecutableWin=Peacock-v8.9.0/nodedist/node.exe`
-3. `peacockmetaconfig.json` — update `"ConfigFile": "Peacock-v8.8.1/options.ini"` to the new
-   folder name too.
-4. Click **Check for updates / Update** on the instance in AMP.
+```
+"https://github.com/thepeacockproject/Peacock/releases/download/v8.8.1/Peacock-v8.8.1.zip"
+"https://github.com/thepeacockproject/Peacock/releases/download/v8.8.1/Peacock-v8.8.1-linux.zip"
+```
 
-(If you'd rather this happened automatically, AMP's Generic module also supports running an
-arbitrary script as an update stage — e.g. a `bash -c` one-liner using `curl`/`jq` against
-the GitHub Releases API to always grab the latest asset and flatten the version folder. That
-approach is used by some of CubeCoders' own templates (see `hytale.kvp` in
-CubeCoders/AMPTemplates for an example), but it's more fragile to hand-write correctly than a
-one-line version bump, so it's left out of this template.)
+Bump `v8.8.1` to the new tag in both, then click **Update** on the instance in AMP.
+
+## Known gotcha this template already ran into (fixed)
+
+An earlier version of this template assumed the Linux zip's internal folder was named
+`Peacock-v8.8.1` (same as Windows). It's actually `Peacock-v8.8.1-linux`. If you deployed an
+earlier copy of this template and get `Cannot find module '.../Peacock-v8.8.1/chunk0.js'`,
+grab the current `peacockupdates.json`/`peacock.kvp`/`peacockmetaconfig.json` from this
+package (which normalize both platforms into a `server/` folder) and re-run Update.
 
 ## Verifying / troubleshooting
 
@@ -103,7 +105,17 @@ one-line version bump, so it's left out of this template.)
   to "Running".
 - If the instance won't start on Linux, check that `/usr/bin/node` exists in the container/
   host (`which node`), and that Node.js is v22 or newer (Peacock's `.nvmrc` currently
-  specifies `v24.14.1`).
+  specifies `v24.14.1`). **Heads up:** `cubecoders/ampbase:node`'s apt-installed Node.js has
+  been observed to be v18, which is older than Peacock wants — if you hit errors after the
+  module-not-found issue is resolved, this is the next likely culprit. Fix inside the
+  container with `nvm`:
+  ```
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+  nvm install 24
+  which node   # note the printed path
+  ```
+  then set `App.ExecutableLinux` in `peacock.kvp` to that printed path instead of
+  `/usr/bin/node`.
 - If players can't connect, double check the port they're patching to in PeacockPatcher/
   OnlineTools matches the port shown in AMP's Ports tab for this instance, and that the port
   is actually reachable (firewall/NAT).

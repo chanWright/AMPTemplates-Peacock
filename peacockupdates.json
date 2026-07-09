@@ -8,11 +8,27 @@
     "OverwriteExistingFiles": true
   },
   {
+    "UpdateStageName": "Normalize Windows folder name to 'server'",
+    "UpdateSourcePlatform": "Windows",
+    "UpdateSource": "Executable",
+    "UpdateSourceData": "powershell.exe",
+    "UpdateSourceArgs": "-NoProfile -ExecutionPolicy Bypass -Command \"if (Test-Path '{{$FullRootDir}}Peacock-v8.8.1') { if (Test-Path '{{$FullRootDir}}server') { Remove-Item -LiteralPath '{{$FullRootDir}}server' -Recurse -Force }; Rename-Item -LiteralPath '{{$FullRootDir}}Peacock-v8.8.1' -NewName 'server' }\"",
+    "SkipOnFailure": true
+  },
+  {
     "UpdateStageName": "Download Peacock (Linux build, requires system Node.js)",
     "UpdateSourcePlatform": "Linux",
     "UpdateSource": "FetchURL",
     "UpdateSourceData": "https://github.com/thepeacockproject/Peacock/releases/download/v8.8.1/Peacock-v8.8.1-linux.zip",
     "UnzipUpdateSource": true,
     "OverwriteExistingFiles": true
+  },
+  {
+    "UpdateStageName": "Normalize Linux folder name to 'server'",
+    "UpdateSourcePlatform": "Linux",
+    "UpdateSource": "Executable",
+    "UpdateSourceData": "/bin/bash",
+    "UpdateSourceArgs": "-c \"cd '{{$FullRootDir}}' && for d in Peacock-v8.8.1-linux Peacock-v8.8.1; do if [ -d \\\"$d\\\" ]; then rm -rf server; mv \\\"$d\\\" server; break; fi; done\"",
+    "SkipOnFailure": true
   }
 ]

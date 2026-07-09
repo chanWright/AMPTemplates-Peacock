@@ -1,6 +1,6 @@
 [
   {
-    "ConfigFile": "Peacock-v8.8.1/options.ini",
+    "ConfigFile": "server/options.ini",
     "ConfigType": "ini",
     "Subsections": [
       {

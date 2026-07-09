@@ -1,10 +1,10 @@
-Meta.DisplayName=HITMAN WoA Server (Peacock)
+Meta.DisplayName=Peacock (HITMAN WoA Server)
 Meta.Description=Self-hosted replacement for the HITMAN World of Assassination trilogy's online services. Lets you play offline/LAN with progression, contracts, escalations and Ghost Mode, without IOI's official servers.
 Meta.OS=Windows, Linux
 Meta.Arch=x86_64
 Meta.Author=Unofficial community template (not affiliated with IO Interactive or The Peacock Project team)
 Meta.URL=https://thepeacockproject.org/
-Meta.DisplayImageSource=steam:1659040
+Meta.DisplayImageSource=none:
 Meta.EndpointURIFormat=
 Meta.ConfigManifest=peacockconfig.json
 Meta.MetaConfigManifest=peacockmetaconfig.json
@@ -23,9 +23,9 @@ Meta.AppConfigId=e9c8b3e8-9687-4a46-9a14-afc110e36b12
 
 App.DisplayName=Peacock HITMAN Server
 App.RootDir=./peacock/
-App.BaseDirectory=./peacock/Peacock-v8.8.1/
-App.WorkingDir=Peacock-v8.8.1
-App.ExecutableWin=Peacock-v8.8.1/nodedist/node.exe
+App.BaseDirectory=./peacock/server/
+App.WorkingDir=server
+App.ExecutableWin=server/nodedist/node.exe
 App.ExecutableLinux=/usr/bin/node
 App.Compatibility=None
 App.LinuxCommandLineArgs=
