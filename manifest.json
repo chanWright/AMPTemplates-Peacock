@@ -2,7 +2,7 @@
   "id": "peacock-hitman-woa",
   "origin": "chanWright/AMPTemplates-Peacock",
   "url": "https://github.com/chanWright/AMPTemplates-Peacock",
-  "prefix": "Peacock",
+  "prefix": "",
   "configs": [
     "peacock.kvp"
   ]
